@@ -1,0 +1,16 @@
+{{ define "main" }}
+{{ partial "header-compact.html" (dict "edition" false) }}
+<main class="listing">
+  <div class="listing-group">
+    <h2>{{ .Title }}</h2>
+    {{- range .Pages }}
+    <div class="stack listing-item">
+      <a class="headline headline--m" href="{{ .RelPermalink }}">{{ if eq .Kind "term" }}{{ partial "rubric-label.html" .Data.Term }}{{ else }}{{ partial "inline.html" .Title }}{{ end }}</a>
+      {{- if .IsPage }}
+      {{ partial "meta.html" (dict "page" . "variant" "short") }}
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</main>
+{{ end }}

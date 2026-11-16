@@ -1,0 +1,9 @@
+{{- $back := site.Home.RelPermalink -}}
+{{- with .edition }}{{ $back = .RelPermalink }}{{ end -}}
+<header class="header-compact">
+  <a class="brand" href="{{ site.Home.RelPermalink }}">{{ partial "logo.html" 36 }}<span>{{ site.Title }}</span></a>
+  {{- with .edition }}
+  <div class="caps">{{ partial "edition-label.html" . }}</div>
+  {{- end }}
+  <a class="back" href="{{ $back }}">← Retour à la une</a>
+</header>

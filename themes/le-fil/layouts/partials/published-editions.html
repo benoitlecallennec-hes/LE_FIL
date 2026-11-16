@@ -1,0 +1,6 @@
+{{- /* Newest first. An edition exists once its page is written: before that, the term only comes from drafts being kept for it. */ -}}
+{{- $published := slice -}}
+{{- range site.Taxonomies.edition.Alphabetical.Reverse -}}
+  {{- if .Page.Params.number -}}{{- $published = $published | append .Page -}}{{- end -}}
+{{- end -}}
+{{- return $published -}}

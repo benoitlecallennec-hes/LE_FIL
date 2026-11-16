@@ -1,0 +1,269 @@
+# Tags of interest, in display order. A billet takes the first of its feed
+# categories found in a `match` list (case-insensitive); with no hit it goes
+# to `status: review`.
+tags:
+  - id: c
+    label: C
+    match: [c, c23, c2y, c2x, c17, c standard, modern c]
+  - id: cpp
+    label: C++
+    match: [c++, cpp, c++20, c++23, c++26, c26, cpp2, cppfront, msvc, cmake, vcpkg]
+  - id: 3d
+    label: 3D
+    match: [3d, graphics, rendering, shader, shaders, unity, blender, vulkan, opengl, webgpu, animation, geometry nodes]
+  - id: autres
+    label: Autres
+    match: [git, software engineering, teaching, tools]
+
+# rank: 1 is the most trusted. A feed with a fixed `tag` skips category
+# matching: every billet it produces lands in that rubric.
+feeds:
+  # Course sites: no categories in their feeds, so the tag is fixed.
+  - name: Cours Langage C
+    url: https://he-arc.github.io/1242.1-Langage_C/index.xml
+    type: rss
+    tag: c
+    lang: fr
+    rank: 1
+  - name: Cours Langage C++
+    url: https://he-arc.github.io/1242.2-Langage_CPP/index.xml
+    type: rss
+    tag: cpp
+    lang: fr
+    rank: 1
+  - name: Cours Génie logiciel
+    url: https://he-arc.github.io/2243.2-Genie_Logiciel/index.xml
+    type: rss
+    tag: autres
+    lang: fr
+    rank: 1
+  - name: Cours Introduction à Unity
+    url: https://he-arc.github.io/3292.2-Introduction_Unity/index.xml
+    type: rss
+    tag: 3d
+    lang: fr
+    rank: 1
+
+  # C
+  - name: Jens Gustedt
+    url: https://gustedt.wordpress.com/feed/
+    type: rss
+    tag: c
+    lang: en
+    rank: 2
+  - name: thephd.dev
+    url: https://thephd.dev/feed.xml
+    type: rss
+    lang: en
+    rank: 2
+  - name: nullprogram.com
+    url: https://nullprogram.com/feed/
+    type: rss
+    lang: en
+    rank: 3
+  - name: Jacob Sorber
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCwd5VFu4KoJNjkWJZMFJGHQ
+    type: youtube
+    tag: c
+    lang: en
+    rank: 3
+  - name: Low Level
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UC6biysICWOJ-C3P4Tyeggzg
+    type: youtube
+    tag: c
+    lang: en
+    rank: 4
+
+  # C++
+  - name: isocpp.org
+    url: https://isocpp.org/blog/rss
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 2
+  - name: herbsutter.com
+    url: https://herbsutter.com/feed/
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 2
+  - name: Microsoft C++ Team Blog
+    url: https://devblogs.microsoft.com/cppblog/feed/
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 2
+  - name: CppCon
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCMlGfpWw-RUdWX_JbLCukXg
+    type: youtube
+    tag: cpp
+    lang: en
+    rank: 2
+  - name: cppstories.com
+    url: https://www.cppstories.com/index.xml
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: modernescpp.com
+    url: https://www.modernescpp.com/index.php/feed/
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: sandordargo.com
+    url: https://www.sandordargo.com/feed.xml
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: Arthur O'Dwyer
+    url: https://quuxplusone.github.io/blog/feed.xml
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: Barry Revzin
+    url: https://brevzin.github.io/feed.xml
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: meetingcpp.com
+    url: https://meetingcpp.com/feed.xml
+    type: rss
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: C++ Weekly
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCxHAlbZQNFU2LgEtiqd2Maw
+    type: youtube
+    tag: cpp
+    lang: en
+    rank: 3
+  - name: The Cherno
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCQ-W1KE9EYfdxhL6S4twUNw
+    type: youtube
+    tag: cpp
+    lang: en
+    rank: 4
+
+  # 3D
+  - name: Blender Developers Blog
+    url: https://code.blender.org/feed/
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 2
+  - name: godotengine.org
+    url: https://godotengine.org/rss.xml
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 2
+  - name: khronos.org
+    url: https://www.khronos.org/feeds/news_feed
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 3
+  - name: aras-p.info
+    url: https://aras-p.info/atom.xml
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 3
+  - name: The ryg blog
+    url: https://fgiesen.wordpress.com/feed/
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 3
+  - name: Graphics Programming Weekly
+    url: https://www.jendrikillner.com/tags/weekly/index.xml
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 3
+  - name: Sebastian Lague
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCmtyQOKKmrMVaKuRXz02jbQ
+    type: youtube
+    tag: 3d
+    lang: en
+    rank: 3
+  - name: Freya Holmér
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UC7M-Wz4zK8oikt6ATcoTwBA
+    type: youtube
+    tag: 3d
+    lang: en
+    rank: 3
+  - name: alanzucconi.com
+    url: https://www.alanzucconi.com/feed/
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 4
+  - name: Unity Blog
+    url: https://unity.com/blog/rss
+    type: rss
+    tag: 3d
+    lang: en
+    rank: 4
+  - name: SimonDev
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCEwhtpXrg5MmwlH04ANpL8A
+    type: youtube
+    tag: 3d
+    lang: en
+    rank: 4
+
+  # Autres
+  - name: martinfowler.com
+    url: https://martinfowler.com/feed.atom
+    type: rss
+    tag: autres
+    lang: en
+    rank: 2
+  - name: lemire.me
+    url: https://lemire.me/blog/feed/
+    type: rss
+    tag: autres
+    lang: en
+    rank: 3
+  - name: jvns.ca
+    url: https://jvns.ca/atom.xml
+    type: rss
+    tag: autres
+    lang: en
+    rank: 3
+  - name: Hugo News
+    url: https://gohugo.io/news/index.xml
+    type: rss
+    tag: autres
+    lang: en
+    rank: 4
+  - name: The GitHub Blog
+    url: https://github.blog/feed/
+    type: rss
+    tag: autres
+    lang: en
+    rank: 4
+  - name: "Flux RSS HES-SO: Actualités"
+    url: https://www.hes-so.ch/actualites/rss-news?type=600
+    type: rss
+    lang: fr
+    rank: 2
+  - name: "Flux RSS HES-SO: Agenda"
+    url: https://www.hes-so.ch/agenda/rss-events?type=600
+    type: rss
+    lang: fr
+    rank: 2
+  - name: "Flux RSS HES-SO: Actualités de la recherche"
+    url: https://www.hes-so.ch/recherche-innovation/rss-actualites-de-la-recherche?type=600
+    type: rss
+    lang: fr
+    rank: 2
+  - name: Geeks3D
+    url: https://feeds2.feedburner.com/TheGeeksOf3d
+    type: rss
+    lang: en
+    rank: 2

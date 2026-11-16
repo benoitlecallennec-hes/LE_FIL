@@ -1,0 +1,7 @@
+<div class="stack rubric-item">
+  <a class="headline headline--m" href="{{ .RelPermalink }}">{{ partial "inline.html" .Title }}</a>
+  {{- with .Params.summary }}
+  <div class="blurb">{{ partial "inline.html" . }}</div>
+  {{- end }}
+  {{ partial "meta.html" (dict "page" . "variant" "short") }}
+</div>

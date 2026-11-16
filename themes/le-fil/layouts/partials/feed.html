@@ -1,0 +1,5 @@
+{{- $feed := dict -}}
+{{- range site.Data.flux.feeds -}}
+  {{- if eq .name $.Params.source -}}{{- $feed = . -}}{{- end -}}
+{{- end -}}
+{{- return $feed -}}

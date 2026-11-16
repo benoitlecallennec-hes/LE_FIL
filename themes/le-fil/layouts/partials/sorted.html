@@ -1,0 +1,14 @@
+{{- /* The hand-picked post first, then feed rank, then publication order. */ -}}
+{{- $rows := slice -}}
+{{- range . -}}
+  {{- $feed := partial "feed.html" . -}}
+  {{- $rank := int ($feed.rank | default 999) -}}
+  {{- $picked := cond (eq .Params.featured true) 0 1 -}}
+  {{- $key := printf "%d-%04d-%s-%s" $picked $rank (.Date.Format "20060102150405") .Path -}}
+  {{- $rows = $rows | append (dict "key" $key "page" .) -}}
+{{- end -}}
+{{- $sorted := first 0 . -}}
+{{- range sort $rows "key" -}}
+  {{- $sorted = $sorted | append .page -}}
+{{- end -}}
+{{- return $sorted -}}

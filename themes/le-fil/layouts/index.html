@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{- /* The newest edition; in a build with drafts, that is the one being prepared. */ -}}
+{{- range first 1 site.Taxonomies.edition.Alphabetical.Reverse }}
+{{ partial "edition.html" .Page }}
+{{- else }}
+{{ partial "header-compact.html" (dict "edition" false) }}
+<p class="side-text">Aucun numéro publié pour l'instant.</p>
+{{- end }}
+{{ end }}

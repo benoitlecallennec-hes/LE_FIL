@@ -1,0 +1,3 @@
+{{- $id := "" -}}
+{{- range first 1 (.Params.tags | default slice) -}}{{- $id = . -}}{{- end -}}
+{{- return (dict "id" $id "label" (partial "rubric-label.html" $id)) -}}

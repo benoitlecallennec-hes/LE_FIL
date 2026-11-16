@@ -1,0 +1,3 @@
+# Reply counts per billet path, e.g. /billets/some-slug: 3.
+# To be rewritten from GitHub Discussions at build time.
+counts: {}

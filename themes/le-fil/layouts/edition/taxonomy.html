@@ -1,0 +1,16 @@
+{{ define "title" }}Tous les numéros · {{ site.Title }}{{ end }}
+{{ define "main" }}
+{{ partial "header-compact.html" (dict "edition" false) }}
+<main class="listing">
+  <div class="listing-group">
+    <h2>Tous les numéros</h2>
+    {{- range partial "published-editions.html" . }}
+    {{- $count := len (where .Pages "Params.status" "published") }}
+    <div class="stack listing-item">
+      <a class="headline headline--m" href="{{ .RelPermalink }}">{{ partial "edition-label.html" . }}</a>
+      <div class="meta">{{ $count }} billet{{ if gt $count 1 }}s{{ end }} · publié le {{ .Date | time.Format "Monday 2 January 2006" }}</div>
+    </div>
+    {{- end }}
+  </div>
+</main>
+{{ end }}

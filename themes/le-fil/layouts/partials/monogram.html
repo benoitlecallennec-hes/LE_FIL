@@ -1,0 +1,16 @@
+{{- $feed := partial "feed.html" . -}}
+{{- with $feed.logo -}}
+<img class="monogram" src="{{ cond (hasPrefix . "http") . (relURL .) }}" alt="">
+{{- else -}}
+  {{- $text := $feed.monogram | default "" -}}
+  {{- if not $text -}}
+    {{- $name := replaceRE `\.[a-z]+$` "" (lower (.Params.source | default "")) -}}
+    {{- $parts := split (strings.TrimSpace (replaceRE `[^a-z0-9]+` " " $name)) " " -}}
+    {{- if ge (len $parts) 2 -}}
+      {{- $text = printf "%s%s" (substr (index $parts 0) 0 1) (substr (index $parts 1) 0 1) -}}
+    {{- else -}}
+      {{- $text = substr $name 0 2 -}}
+    {{- end -}}
+  {{- end -}}
+<span class="monogram" aria-hidden="true">{{ upper $text }}</span>
+{{- end -}}

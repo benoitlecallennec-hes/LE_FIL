@@ -1,0 +1,135 @@
+{{ define "main" }}
+{{- $edition := false }}
+{{- range first 1 (.GetTerms "edition") }}{{ $edition = . }}{{ end }}
+{{- $rubric := partial "rubric.html" . }}
+{{- $feed := partial "feed.html" . }}
+{{- $isVideo := in (slice "video" "short") (.Params.format | default "article") }}
+{{- $langNames := dict "fr" "français" "en" "anglais" "de" "allemand" "it" "italien" "es" "espagnol" }}
+{{- $langName := index $langNames (.Params.lang | default "") | default (.Params.lang | default "") }}
+{{- $replies := index (site.Data.discussions.counts | default dict) .Path | default 0 }}
+{{- $isLead := false }}
+{{- $siblings := first 0 site.RegularPages }}
+{{- with $edition }}
+  {{- $sorted := partial "sorted.html" (partial "edition-posts.html" .) }}
+  {{- range first 1 $sorted }}{{ $isLead = eq .Path $.Path }}{{ end }}
+  {{- $siblings = where (where $sorted "Params.tags" "intersect" (slice $rubric.id)) "Path" "ne" $.Path }}
+{{- end }}
+{{ partial "header-compact.html" (dict "edition" $edition) }}
+<div class="grid-12 post-layout">
+
+  <main class="span-8 stack post">
+    <div class="kicker">{{ $rubric.label }}{{ with partial "media-label.html" . }} · {{ . }}{{ end }}{{ if $isLead }} · À la une{{ end }}</div>
+    <h1 class="headline headline--xl">{{ partial "inline.html" .Title }}</h1>
+    {{- with .Params.summary }}
+    <div class="deck">{{ partial "inline.html" . }}</div>
+    {{- end }}
+
+    <div class="meta meta--l byline">
+      {{ partial "monogram.html" . }}
+      <span>{{ if $isVideo }}Chaîne {{ end }}{{ .Params.source }}{{ if $isVideo }} · YouTube{{ end }} · publié le {{ .Date | time.Format "Monday 2 January 2006" }}{{ if $isVideo }}{{ with .Params.duration }} · {{ . }} min{{ end }}{{ else }}{{ with .Params.reading_time }} · {{ . }} min de lecture{{ end }}{{ end }}</span>
+      {{- with .Params.lang }}
+      <span class="lang-chip">{{ . }}</span>
+      {{- end }}
+      {{ partial "level.html" . }}
+    </div>
+
+    {{ partial "figure.html" (dict "page" . "size" "post" "href" .Params.link) }}
+    {{- if and .Params.image .Params.image_generated }}
+    <div class="figure-note">Illustration générée — le billet original n'en fournit pas.</div>
+    {{- end }}
+
+    {{- with .Content }}
+    <div class="prose">{{ . }}</div>
+    {{- end }}
+
+    {{- with .Params.takeaways }}
+    <div class="stack takeaways">
+      <div class="takeaways-title">À retenir</div>
+      <ul>
+        {{- range . }}
+        <li>{{ partial "inline.html" . }}</li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- with .Params.link }}
+    <div class="original">
+      <a class="button" href="{{ . }}" rel="noopener">{{ if $isVideo }}Voir la vidéo sur YouTube{{ else }}Lire l'original sur {{ $.Params.source }}{{ end }}
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg>
+      </a>
+      <span class="original-note">
+        {{- $basis := cond $isVideo "de la transcription de la vidéo" "de l'article complet" -}}
+        {{- if eq $.Params.lang "fr" -}}
+        Résumé rédigé à partir {{ $basis }}.
+        {{- else -}}
+        Résumé rédigé en français à partir {{ $basis }}, en {{ $langName }}. Le texte ci-dessus n'est pas une traduction.
+        {{- end -}}
+      </span>
+    </div>
+    {{- end }}
+
+    <section class="stack discussion" id="discussion">
+      <div class="discussion-head">
+        <h2>Discussion</h2>
+        <div class="caps">{{ if $replies }}{{ $replies }} réponse{{ if gt $replies 1 }}s{{ end }} · {{ end }}via GitHub Discussions</div>
+      </div>
+      {{ partial "giscus.html" . }}
+    </section>
+  </main>
+
+  <aside class="span-4 stack side post-side">
+
+    <div class="stack side-block">
+      <div class="side-title">Fiche</div>
+      <dl class="sheet-table">
+        <dt>Source</dt><dd>{{ .Params.source }}</dd>
+        <dt>Langue d'origine</dt><dd>{{ $langName | strings.FirstUpper }}</dd>
+        <dt>Niveau</dt><dd>{{ partial "level.html" . }} <span class="soft">(attribué automatiquement)</span></dd>
+        <dt>Rubrique</dt><dd>{{ $rubric.label }}{{ with .Params.feed_tag }} <span class="soft">(tag du flux : {{ . }})</span>{{ end }}</dd>
+        <dt>Publié</dt><dd>{{ .Date | time.Format "2 January 2006" }}</dd>
+        {{- with $edition }}
+        {{- $info := partial "edition-info.html" . }}
+        <dt>Repris dans</dt><dd><a href="{{ .RelPermalink }}">{{ if $info.preview }}Numéro en préparation{{ else }}N° {{ $info.number }}{{ end }}, semaine {{ $info.week }}</a></dd>
+        {{- end }}
+        {{- with $feed.rank }}
+        <dt>Fiabilité de la source</dt><dd>rang {{ . }}</dd>
+        {{- end }}
+        {{- if $isLead }}
+        <dt>Choix de la une</dt><dd>{{ if .Params.featured }}à la main{{ else }}rang de fiabilité{{ end }}</dd>
+        {{- end }}
+      </dl>
+    </div>
+
+    {{- with first 3 $siblings }}
+    <div class="stack">
+      <div class="side-title">Dans la même rubrique</div>
+      {{- range . }}
+      <div class="stack related-item">
+        <a class="headline headline--s" href="{{ .RelPermalink }}">{{ partial "inline.html" .Title }}</a>
+        <div class="meta"><span>{{ .Params.source }} · {{ upper .Params.lang }} ·</span> {{ partial "level.html" . }}</div>
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
+
+    {{- with $edition }}
+    <div class="stack side-block">
+      <div class="side-title">Éditions précédentes</div>
+      <div class="side-text">
+        {{- $current := .Params.number | default 100000 }}
+        {{- $previous := 0 }}
+        {{- range partial "published-editions.html" . }}
+        {{- if lt .Params.number $current }}
+        {{- $previous = add $previous 1 }}
+        <div><a href="{{ .RelPermalink }}">{{ partial "edition-label.html" . }}</a></div>
+        {{- end }}
+        {{- end }}
+        {{- if not $previous }}Ceci est le premier numéro.{{ end }}
+      </div>
+    </div>
+    {{- end }}
+
+  </aside>
+</div>
+{{ end }}

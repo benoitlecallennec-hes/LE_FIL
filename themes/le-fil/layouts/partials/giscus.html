@@ -1,0 +1,20 @@
+{{- $g := site.Params.giscus | default dict -}}
+{{- if and $g.repo $g.repoId $g.categoryId -}}
+<script src="https://giscus.app/client.js"
+  data-repo="{{ $g.repo }}"
+  data-repo-id="{{ $g.repoId }}"
+  data-category="{{ $g.category }}"
+  data-category-id="{{ $g.categoryId }}"
+  data-mapping="pathname"
+  data-strict="1"
+  data-reactions-enabled="0"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="fr"
+  data-loading="lazy"
+  crossorigin="anonymous"
+  async></script>
+{{- else -}}
+<p class="discussion-pending">Discussion pas encore branchée : renseigner <code>params.giscus</code> dans <code>hugo.toml</code>.</p>
+{{- end -}}

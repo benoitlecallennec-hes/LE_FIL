@@ -1,0 +1,2 @@
+{{- /* Posts kept for an edition but not published yet are drafts: they only show up in a build with drafts. */ -}}
+{{- return (where .Pages "Params.status" "in" (slice "published" "selected")) -}}

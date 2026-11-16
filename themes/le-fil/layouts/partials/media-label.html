@@ -1,0 +1,2 @@
+{{- $labels := dict "video" "Vidéo" "short" "Short" -}}
+{{- return (index $labels (.Params.format | default "article") | default "") -}}

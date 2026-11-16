@@ -1,0 +1,6 @@
+{{- $info := partial "edition-info.html" . -}}
+{{- $range := printf "%s – %s" ($info.start | time.Format "2 January") ($info.end | time.Format "2 January 2006") -}}
+{{- if eq $info.start.Month $info.end.Month -}}
+  {{- $range = printf "%d–%s" $info.start.Day ($info.end | time.Format "2 January 2006") -}}
+{{- end -}}
+{{ if $info.preview }}En préparation{{ else }}N° {{ $info.number }}{{ end }} · Semaine {{ $info.week }} · {{ $range }}

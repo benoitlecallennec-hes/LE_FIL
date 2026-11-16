@@ -1,0 +1,4 @@
+{{- $labels := dict "beginner" "Débutant" "intermediate" "Intermédiaire" "advanced" "Avancé" -}}
+{{- with index $labels (.Params.level | default "") -}}
+<span class="level level--{{ $.Params.level }}" title="Niveau : {{ . }}">{{ . }}</span>
+{{- end -}}

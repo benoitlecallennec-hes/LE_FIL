@@ -1,0 +1,154 @@
+{{- $info := partial "edition-info.html" . -}}
+{{- $posts := partial "edition-posts.html" . -}}
+{{- $sorted := partial "sorted.html" $posts -}}
+{{- $rest := after 1 $sorted -}}
+{{- $tags := site.Data.flux.tags | default slice -}}
+{{- $feeds := site.Data.flux.feeds | default slice -}}
+{{- $rssCount := len (where $feeds "type" "rss") -}}
+{{- $youtubeCount := len (where $feeds "type" "youtube") -}}
+{{- $feedCounts := printf "%d flux RSS + %d chaîne%s YouTube" $rssCount $youtubeCount (cond (gt $youtubeCount 1) "s" "") -}}
+
+{{- if $info.preview }}
+<p class="preview-banner">Aperçu — ce numéro est en préparation et n'est pas publié.</p>
+{{- end }}
+<header>
+  <div class="topline caps">
+    <div>{{ partial "edition-label.html" . }}</div>
+    <div>Édition hebdomadaire · {{ $feedCounts }}</div>
+    <div>{{ if $info.preview }}Pas encore publié{{ else }}Publié le {{ $info.date | time.Format "Monday 2 January 2006" }}{{ end }}</div>
+  </div>
+  <div class="masthead">
+    <div class="masthead-title">
+      {{ partial "logo.html" 72 }}
+      <h1>{{ site.Title }}</h1>
+    </div>
+    <div class="masthead-tagline">{{ site.Params.tagline }}{{ range $tags }} · {{ .label }}{{ end }}</div>
+  </div>
+  {{- /* Only the rubrics that have a section below: the lead story is not repeated in its own rubric. */ -}}
+  {{- $shown := slice }}
+  {{- range $tags }}
+    {{- if where $rest "Params.tags" "intersect" (slice .id) }}{{ $shown = $shown | append . }}{{ end }}
+  {{- end }}
+  {{- with $shown }}
+  <nav class="rubric-nav" aria-label="Rubriques">
+    {{- range . }}
+    <a href="#{{ .id }}">{{ .label }}</a>
+    {{- end }}
+  </nav>
+  {{- end }}
+</header>
+
+<main>
+{{- range first 1 $sorted }}
+{{- $rubric := partial "rubric.html" . }}
+<section class="grid-12 lead-story">
+  <div class="span-8 stack lead-story-main">
+    {{ partial "figure.html" (dict "page" . "size" "lead") }}
+    <div class="kicker">{{ $rubric.label }}{{ with partial "media-label.html" . }} · {{ . }}{{ end }} · À la une</div>
+    <a class="headline headline--xl" href="{{ .RelPermalink }}">{{ partial "inline.html" .Title }}</a>
+    {{- with .Params.summary }}
+    <div class="deck deck--xl">{{ partial "inline.html" . }}</div>
+    {{- end }}
+    {{ partial "meta.html" (dict "page" . "variant" "long") }}
+  </div>
+
+  {{- $heads := first 0 $rest }}
+  {{- range $tags }}
+    {{- $heads = $heads | append (first 1 (where $rest "Params.tags" "intersect" (slice .id))) }}
+  {{- end }}
+  {{- $brief := first (site.Params.briefCount | default 5) ($heads | append ($rest | complement $heads)) }}
+  {{- with $brief }}
+  <div class="span-4 stack side">
+    <div class="side-title">En bref cette semaine</div>
+    {{- range sort . "Date" }}
+    {{- $r := partial "rubric.html" . }}
+    <div class="stack brief-item">
+      <div class="kicker kicker--small">{{ $r.label }}{{ with partial "media-label.html" . }} · {{ . }}{{ end }}</div>
+      <a class="headline headline--m" href="{{ .RelPermalink }}">{{ partial "inline.html" .Title }}</a>
+      {{ partial "meta.html" (dict "page" . "variant" "short") }}
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+</section>
+{{- end }}
+
+{{- range $tags }}
+{{- $inRubric := where $rest "Params.tags" "intersect" (slice .id) }}
+{{- $count := len (where $posts "Params.tags" "intersect" (slice .id)) }}
+{{- if $inRubric }}
+{{- /* A rubric leads with its hand-picked post, else with its best-ranked post that has an image. */ -}}
+{{- $lead := first 0 $inRubric }}
+{{- range $inRubric }}
+  {{- if and (not $lead) (or (eq .Params.featured true) .Params.image) }}{{ $lead = $lead | append . }}{{ end }}
+{{- end }}
+{{- $others := $inRubric | complement $lead }}
+{{- $label := .label }}
+<section class="stack rubric" id="{{ .id }}">
+  <div class="rubric-head">
+    <h2>{{ with site.GetPage (printf "/tags/%s" .id) }}<a href="{{ .RelPermalink }}">{{ $label }}</a>{{ else }}{{ $label }}{{ end }}</h2>
+    <div class="rubric-count">{{ $count }} billet{{ if gt $count 1 }}s{{ end }} cette semaine</div>
+  </div>
+  {{- if $lead }}
+  {{- $head := index $lead 0 }}
+  <div class="grid-12">
+    <div class="span-6 stack rubric-lead">
+      {{ partial "figure.html" (dict "page" $head "size" "head") }}
+      {{- with partial "media-label.html" $head }}
+      <div class="kicker">{{ . }}</div>
+      {{- end }}
+      <a class="headline headline--l" href="{{ $head.RelPermalink }}">{{ partial "inline.html" $head.Title }}</a>
+      {{- with $head.Params.summary }}
+      <div class="deck deck--l">{{ partial "inline.html" . }}</div>
+      {{- end }}
+      {{ partial "meta.html" (dict "page" $head "variant" "short") }}
+    </div>
+    {{- /* Three posts stand about as tall as the lead; the others flow below in two balanced columns. */ -}}
+    <div class="span-6 stack">
+      {{- range first 3 $others }}
+      {{ partial "rubric-item.html" . }}
+      {{- end }}
+    </div>
+  </div>
+  {{- with after 3 $others }}
+  <div class="rubric-more">
+    {{- range . }}
+    {{ partial "rubric-item.html" . }}
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- else }}
+  <div class="columns-3">
+    {{- range $inRubric }}
+    <div class="stack">
+      <a class="headline headline--m" href="{{ .RelPermalink }}">{{ partial "inline.html" .Title }}</a>
+      {{- with .Params.summary }}
+      <div class="blurb">{{ partial "inline.html" . }}</div>
+      {{- end }}
+      {{ partial "meta.html" (dict "page" . "variant" "short") }}
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+</section>
+{{- end }}
+{{- end }}
+</main>
+
+{{- $sources := slice }}
+{{- range $posts }}{{ $sources = $sources | append .Params.source }}{{ end }}
+{{- $videoCount := len (where $posts "Params.format" "in" (slice "video" "short")) }}
+<footer class="imprint">
+  <div>
+    <h2>Ours</h2>
+    <p>{{ site.Title }}, {{ if $info.preview }}numéro en préparation{{ else }}n° {{ $info.number }}{{ end }} — semaine {{ $info.week }} de {{ $info.start.Year }}.<br>Édition composée automatiquement à partir des flux suivis. Une et têtes de rubrique choisies selon le rang de fiabilité des sources (en rubrique, parmi les billets illustrés), sauf choix fait à la main.{{ with site.GetPage "/edition" }}<br><a href="{{ .RelPermalink }}">Tous les numéros</a>{{ end }}</p>
+  </div>
+  <div>
+    <h2>Sources de ce numéro</h2>
+    <p>{{ delimit (uniq $sources) " · " }}</p>
+  </div>
+  <div>
+    <h2>Chiffres</h2>
+    <p>{{ len $posts }} billet{{ if gt (len $posts) 1 }}s{{ end }} {{ if $info.preview }}retenu{{ else }}publié{{ end }}{{ if gt (len $posts) 1 }}s{{ end }}{{ if $videoCount }} dont {{ $videoCount }} vidéo{{ if gt $videoCount 1 }}s{{ end }}{{ end }} · {{ $feedCounts }}.<br>Titres et résumés rédigés en français ; la langue indiquée est celle de l'original. Niveau attribué automatiquement : <span class="level level--beginner">Débutant</span> <span class="level level--intermediate">Intermédiaire</span> <span class="level level--advanced">Avancé</span>.<br>Chaque titre mène au résumé, qui renvoie au billet ou à la vidéo d'origine. Images : celles du billet (ou vignette YouTube) ; sans image, une illustration générée. Pastille : monogramme de la source. Discussion : un fil GitHub Discussions par billet (giscus), ouvert à tous.</p>
+  </div>
+</footer>

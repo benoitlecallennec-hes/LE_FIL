@@ -1,0 +1,15 @@
+{{- $p := .page -}}
+{{- $size := .size -}}
+{{- $href := .href | default $p.RelPermalink -}}
+{{- with $p.Params.image -}}
+  {{- $src := cond (hasPrefix . "http") . (relURL .) -}}
+  {{- if in (slice "video" "short") ($p.Params.format | default "article") -}}
+<a class="video-thumb figure--{{ $size }}" href="{{ $href }}" aria-label="{{ replace $p.Title "`" "" }}">
+  <img src="{{ $src }}" alt="" loading="lazy">
+  <svg width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#ffffff" stroke-width="2" aria-hidden="true"><circle cx="32" cy="32" r="30"></circle><path d="M26 20 L46 32 L26 44 Z" fill="#ffffff"></path></svg>
+  <span class="video-caption">YouTube{{ with $p.Params.duration }} · {{ . }} min{{ end }}</span>
+</a>
+  {{- else -}}
+<img class="figure figure--{{ $size }}" src="{{ $src }}" alt="" loading="lazy">
+  {{- end -}}
+{{- end -}}

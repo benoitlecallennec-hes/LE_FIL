@@ -1,0 +1,18 @@
+{{- $p := .page -}}
+{{- $long := eq .variant "long" -}}
+{{- $isVideo := in (slice "video" "short") ($p.Params.format | default "article") -}}
+<div class="meta{{ if $long }} meta--l{{ end }}">
+  {{ partial "monogram.html" $p }}
+  <span>
+    {{- if $isVideo }}Chaîne {{ end }}{{ $p.Params.source }}{{ if $isVideo }} · YouTube{{ end }}
+    {{- with $p.Params.lang }} · {{ upper . }}{{ end }} · {{ if $long -}}
+      {{ $p.Date | time.Format "Monday 2 January" }}
+      {{- if $isVideo }}{{ with $p.Params.duration }} · {{ . }} min{{ end }}
+      {{- else }}{{ with $p.Params.reading_time }} · {{ . }} min de lecture{{ end }}{{ end }}
+    {{- else -}}
+      {{ $p.Date | time.Format "Monday 2" }}
+    {{- end -}}
+  </span>
+  {{ partial "level.html" $p }}
+  {{ partial "replies.html" $p }}
+</div>

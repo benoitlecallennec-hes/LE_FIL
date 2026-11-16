@@ -1,0 +1,18 @@
+{{- /* Inline Markdown of titles and summaries: `code`, **bold** and *italic*, nothing else.
+       The text is cut at backticks so that code keeps its asterisks (`int *p, *q`); outside code, an asterisk
+       only opens emphasis when a word follows it, so that `2 * 3` or `void*` stay as written. */ -}}
+{{- $parts := split (htmlEscape .) "`" -}}
+{{- $last := sub (len $parts) 1 -}}
+{{- $out := "" -}}
+{{- range $i, $part := $parts -}}
+  {{- if and (eq (mod $i 2) 1) (lt $i $last) -}}
+    {{- $out = printf "%s<code>%s</code>" $out $part -}}
+  {{- else -}}
+    {{- /* An odd part at the very end is text after a backtick that was never closed. */ -}}
+    {{- if eq (mod $i 2) 1 }}{{ $out = printf "%s`" $out }}{{ end -}}
+    {{- $text := replaceRE `\*\*(\S(?:[^*]*\S)?)\*\*` "<strong>$1</strong>" $part -}}
+    {{- $text = replaceRE `\*(\S(?:[^*]*\S)?)\*` "<em>$1</em>" $text -}}
+    {{- $out = printf "%s%s" $out $text -}}
+  {{- end -}}
+{{- end -}}
+{{- $out | safeHTML -}}

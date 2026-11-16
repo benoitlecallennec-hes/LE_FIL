@@ -1,0 +1,28 @@
+{{ define "title" }}{{ partial "rubric-label.html" .Data.Term }} · {{ site.Title }}{{ end }}
+{{ define "main" }}
+{{- $term := .Data.Term }}
+{{- $published := where .Pages "Params.status" "published" }}
+{{ partial "header-compact.html" (dict "edition" false) }}
+<main class="listing">
+  <div class="rubric-head">
+    <h2>{{ partial "rubric-label.html" $term }}</h2>
+    <div class="rubric-count">{{ len $published }} billet{{ if gt (len $published) 1 }}s{{ end }} · tous les numéros</div>
+  </div>
+  {{- range partial "published-editions.html" . }}
+  {{- $edition := . }}
+  {{- $posts := where (where $edition.Pages "Params.status" "published") "Params.tags" "intersect" (slice $term) }}
+  {{- with partial "sorted.html" $posts }}
+  <div class="listing-group" style="padding-top: 24px;">
+    <h2><a href="{{ $edition.RelPermalink }}">{{ partial "edition-label.html" $edition }}</a></h2>
+    {{- range . }}
+    <div class="stack listing-item">
+      <a class="headline headline--m" href="{{ .RelPermalink }}">{{ partial "inline.html" .Title }}</a>
+      {{- with .Params.summary }}<div class="blurb">{{ partial "inline.html" . }}</div>{{ end }}
+      {{ partial "meta.html" (dict "page" . "variant" "short") }}
+    </div>
+    {{- end }}
+  </div>
+  {{- end }}
+  {{- end }}
+</main>
+{{ end }}

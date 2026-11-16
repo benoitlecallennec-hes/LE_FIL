@@ -1,0 +1,24 @@
+baseURL = "https://benoitlecallennec-hes.github.io/LE_FIL/"
+title = "LE FIL"
+theme = "le-fil"
+defaultContentLanguage = "fr"
+languageCode = "fr-CH"
+disableKinds = ["rss", "sitemap"]
+
+[taxonomies]
+  tag = "tags"
+  edition = "edition"
+
+[params]
+  tagline = "Revue de presse hebdomadaire"
+  briefCount = 5
+
+  # Fill in from https://giscus.app once the repository and Discussions exist.
+  [params.giscus]
+    repo = "benoitlecallennec-hes/LE_FIL"
+    repoId = "R_kgDOVwGI9g"
+    category = "Announcements"
+    categoryId = "DIC_kwDOVwGI9s4DLPjr"
+
+[markup.highlight]
+  noClasses = false

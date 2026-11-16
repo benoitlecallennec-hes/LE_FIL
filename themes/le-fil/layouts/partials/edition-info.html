@@ -1,0 +1,17 @@
+{{- /*
+  Number, week and dates of an edition. An edition without its page is being prepared: it only exists
+  in a build with drafts, and its week is worked out from its key (`2026-W46`, ISO week).
+*/ -}}
+{{- $info := dict -}}
+{{- if .Params.number -}}
+  {{- $info = dict "preview" false "number" .Params.number "week" .Params.week "start" (time.AsTime .Params.start) "end" (time.AsTime .Params.end) "date" .Date -}}
+{{- else -}}
+  {{- $key := .Data.Term -}}
+  {{- $year := int (substr $key 0 4) -}}
+  {{- $week := int (strings.TrimLeft "0" (substr $key 6 2)) -}}
+  {{- $jan4 := time.AsTime (printf "%d-01-04" $year) -}}
+  {{- $daysFromMonday := mod (add (int $jan4.Weekday) 6) 7 -}}
+  {{- $start := $jan4.AddDate 0 0 (int (sub (mul (sub $week 1) 7) $daysFromMonday)) -}}
+  {{- $info = dict "preview" true "number" 0 "week" $week "start" $start "end" ($start.AddDate 0 0 6) "date" false -}}
+{{- end -}}
+{{- return $info -}}

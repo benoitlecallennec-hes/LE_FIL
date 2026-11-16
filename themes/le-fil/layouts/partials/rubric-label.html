@@ -1,0 +1,5 @@
+{{- $label := . -}}
+{{- range site.Data.flux.tags -}}
+  {{- if eq .id $ -}}{{- $label = .label -}}{{- end -}}
+{{- end -}}
+{{- return $label -}}
