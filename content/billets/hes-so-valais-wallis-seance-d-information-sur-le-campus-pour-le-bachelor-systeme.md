@@ -15,6 +15,9 @@ takeaways:
 status: rejected
 draft: true
 featured: false
+missing:
+  - page de l'événement
+  - extrait du flux
 ---
 La HES-SO Valais-Wallis annonce dans son agenda une séance d'information sur son campus. Elle s'adresse aux personnes intéressées par le Bachelor Systèmes industriels, appelé aussi Systems Engineering.
 

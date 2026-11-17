@@ -15,6 +15,9 @@ takeaways:
 status: rejected
 draft: true
 featured: false
+missing:
+  - page de l'événement
+  - extrait du flux
 ---
 La HES-SO Valais-Wallis (hevs.ch) annonce dans son agenda une séance d'information en ligne consacrée au Bachelor Informatique et systèmes de communication. Elle s'adresse aux personnes qui envisagent de suivre cette formation.
 
