@@ -17,8 +17,7 @@ takeaways:
   - Le contenu _passthrough_ et `wrapperClass` sont maintenant échappés, et Hugo passe à Go 1.27.4
 missing:
   - année de publication déduite du pied de page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

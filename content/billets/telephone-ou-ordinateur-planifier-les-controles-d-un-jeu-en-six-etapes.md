@@ -17,8 +17,7 @@ takeaways:
   - Tester sur de vrais appareils en séparant entrées accidentelles et entrées ignorées.
 missing:
   - adresse de l'image principale (og:image)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

@@ -16,8 +16,7 @@ takeaways:
   - "L'idiome dépend de deux libertés propres à C : des désignateurs dans n'importe quel ordre, et des désignateurs répétés dont le dernier l'emporte (Clang avertit avec `-Winitializer-overrides`)."
   - "Ajouter un champ ne casse pas l'API, mais casse l'ABI : il faut recompiler les appelants."
   - L'auteur réserve ce motif à des cas particuliers. raddebugger d'Epic Games l'utilise dans `ui_anim`.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

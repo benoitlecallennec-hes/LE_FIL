@@ -16,8 +16,7 @@ takeaways:
   - Les méthodes et les conditions trop complexes sont les défauts qui font le plus monter le coût pour les agents.
   - Fowler recommande de garder les agents à un rythme que les humains peuvent encadrer, pour ne pas perdre de vue ce qu'ils font.
   - Le SaaS pourrait devenir un socle commun sur lequel chaque entreprise construit sa propre application à l'aide d'agents.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

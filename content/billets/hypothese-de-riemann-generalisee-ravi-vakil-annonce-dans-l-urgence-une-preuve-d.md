@@ -16,8 +16,7 @@ takeaways:
   - Brian Conrad relit la preuve depuis des mois, et ses retours détaillés sont en cours d'intégration.
   - Selon Ravi Vakil, le travail est entièrement humain, sans recours à l'IA.
   - "Le brouillon sort plus tôt que prévu : il était prévu de peaufiner la rédaction pendant un an à Stanford."
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

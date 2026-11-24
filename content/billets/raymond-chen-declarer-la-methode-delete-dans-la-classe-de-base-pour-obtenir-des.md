@@ -15,8 +15,7 @@ takeaways:
   - Déclarer la méthode `= delete` dans la classe de base montre au développeur la signature à implémenter et place l'erreur à côté d'un commentaire explicatif.
   - C++26 accepte `= delete("message")`. Clang et GCC affichent ce message dans l'erreur, MSVC ne le gère pas encore.
   - La technique échoue si la méthode redéfinit une déclaration d'une classe de base, comme en C++/WRL. Elle fonctionne en C++/WinRT et en C++ standard.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

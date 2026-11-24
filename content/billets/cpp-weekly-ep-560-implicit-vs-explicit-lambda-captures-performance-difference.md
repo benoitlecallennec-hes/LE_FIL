@@ -16,8 +16,7 @@ missing:
   - fiche de l'épisode sur GitHub (issue 557)
   - date de publication
   - durée de la vidéo
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

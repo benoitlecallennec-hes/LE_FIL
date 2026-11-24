@@ -19,8 +19,7 @@ takeaways:
   - "Cartes concernées : Radeon RX 5000 à RX 9000, pour Windows 10/11 en 64 bits"
 missing:
   - balise og:image non vérifiée
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 notions:

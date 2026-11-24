@@ -17,8 +17,7 @@ takeaways:
 missing:
   - image principale (og:image)
   - temps de lecture
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

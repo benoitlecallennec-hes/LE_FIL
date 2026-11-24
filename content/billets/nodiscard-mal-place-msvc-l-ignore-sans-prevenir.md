@@ -16,8 +16,7 @@ takeaways:
   - Écrire `[[nodiscard]] static int f()` déclenche bien l'avertissement C4834 quand la valeur de retour est ignorée.
   - Clang et GCC rejettent l'attribut placé après `static`.
   - Selon l'auteur, Visual Studio 2026 signale l'attribut ignoré avec l'avertissement C5240.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

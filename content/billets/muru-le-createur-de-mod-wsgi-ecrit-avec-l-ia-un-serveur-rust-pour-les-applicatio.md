@@ -18,8 +18,7 @@ takeaways:
   - Pour l'auteur, l'IA écrit beaucoup de code, mais c'est son expérience qui décide de ce qui est assez bon.
 missing:
   - image principale de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

@@ -14,8 +14,7 @@ missing:
   - contenu de la vidéo
   - description de la vidéo (l'extrait ne contient que des liens promotionnels)
   - nature du motif de bug évoqué
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

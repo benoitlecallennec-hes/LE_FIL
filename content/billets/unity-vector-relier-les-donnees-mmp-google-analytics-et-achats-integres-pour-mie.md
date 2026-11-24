@@ -17,8 +17,7 @@ takeaways:
   - Envoyer des événements non attribués suppose d'avoir les consentements et les droits nécessaires.
 missing:
   - image principale (balise og:image non lue)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

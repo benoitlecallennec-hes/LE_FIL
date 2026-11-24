@@ -16,8 +16,7 @@ takeaways:
   - Les six systèmes les plus rapides (8,4 à 18,4 Go/s) utilisent simdutf, qui retire les CRLF dans sa boucle SIMD en compactant les blocs concernés.
   - Go (`base64.StdEncoding.Decode`), Java (`Base64.getMimeDecoder()`) et Zig restent entre 0,85 et 1,6 Go/s.
   - Avec la pull request de Lemire, le `base64_decode` de PHP passe de 0,61 à 17,1 Go/s sur du base64 MIME.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

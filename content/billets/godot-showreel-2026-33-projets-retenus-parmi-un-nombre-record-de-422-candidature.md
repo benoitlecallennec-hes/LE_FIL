@@ -18,8 +18,7 @@ takeaways:
   - Dès l'an prochain, un premier tri écartera les candidatures non conformes, puis le vote sera ouvert aux membres du fonds de développement et aux contributeurs
 missing:
   - contenu de la vidéo elle-même (non visionnée)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

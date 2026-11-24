@@ -18,8 +18,7 @@ takeaways:
   - Par défaut, `std::terminate` appelle `std::abort`, par exemple quand une exception sort d'une fonction `noexcept`.
 missing:
   - image principale de la page (og:image)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

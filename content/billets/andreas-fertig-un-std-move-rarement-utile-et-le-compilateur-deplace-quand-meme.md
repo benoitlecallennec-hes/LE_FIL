@@ -18,8 +18,7 @@ takeaways:
   - En C++23, renvoyer un paramètre `Apple&&`, par valeur ou en `Apple&&`, déclenche un déplacement implicite sans `std::move`.
 missing:
   - image principale (og:image) de l'article original
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

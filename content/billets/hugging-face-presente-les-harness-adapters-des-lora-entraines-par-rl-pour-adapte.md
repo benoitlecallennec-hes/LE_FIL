@@ -17,8 +17,7 @@ takeaways:
 missing:
   - résultats chiffrés de l'ablation sur les filtres
   - image principale de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

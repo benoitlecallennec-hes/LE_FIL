@@ -18,8 +18,7 @@ missing:
   - seconde moitié de l'article lue seulement via un résumé automatique, sans texte exact (boucle de simulation, stockage simulé, scénarios du magasin à quorum, vérification de cohérence)
   - image principale
   - durée de lecture exacte
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

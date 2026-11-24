@@ -18,8 +18,7 @@ takeaways:
   - Le livre vise les débutants et donne un parcours d'apprentissage choisi plutôt qu'une référence complète du langage.
 missing:
   - image principale de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

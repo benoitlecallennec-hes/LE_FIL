@@ -18,8 +18,7 @@ missing:
   - contenu de la vidéo (format Short)
   - nom de l'intervenant
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

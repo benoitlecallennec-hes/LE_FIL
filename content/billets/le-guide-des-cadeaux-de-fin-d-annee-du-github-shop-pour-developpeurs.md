@@ -16,8 +16,7 @@ takeaways:
   - Le kit de clavier GitHub x Omnitype Bauer Lite est vendu avec un PCB hot-swap RGB, des interrupteurs linéaires Omnitype Hawk et des touches en PBT.
   - "La sélection est classée par profil : bâtisseurs, adeptes du confort, décorateurs de bureau, voyageurs, fans et jeunes."
   - Le code `FREESHIPBLOG26` offre la livraison standard gratuite jusqu'au 1er décembre 2026.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

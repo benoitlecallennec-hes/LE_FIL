@@ -19,8 +19,7 @@ missing:
   - image principale (og:image)
   - exemples de fichiers de politique, visibles seulement en images
   - auteur
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

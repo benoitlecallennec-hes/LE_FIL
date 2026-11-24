@@ -19,8 +19,7 @@ missing:
   - contenu de la vidéo (seule la description était disponible)
   - nom de l'intervenant
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

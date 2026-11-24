@@ -17,8 +17,7 @@ takeaways:
   - "`appearance: none` supprime le rendu natif de la liste déroulante."
   - Une flèche SVG intégrée dans une URL `data:` et placée avec `background` remplace l'indicateur d'origine.
   - La page « Select Styling Specimens », générée avec Claude Fable 5.2, recense les façons de styler un `<select>`.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

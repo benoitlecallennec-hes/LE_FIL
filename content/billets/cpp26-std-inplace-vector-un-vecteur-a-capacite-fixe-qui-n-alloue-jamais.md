@@ -16,8 +16,7 @@ takeaways:
   - "Trois façons de gérer le dépassement : `push_back` lève `std::bad_alloc`, `try_push_back` renvoie un `std::optional<T&>` sans effet en cas d'échec, `unchecked_push_back` donne un comportement indéfini."
   - Trivialement copiable si `T` l'est, et `push_back` renvoie une référence vers l'élément ajouté.
   - Un déplacement ou un `swap` coûte O(size), contre O(1) pour `std::vector`.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

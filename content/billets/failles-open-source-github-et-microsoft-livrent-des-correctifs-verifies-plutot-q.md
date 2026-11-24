@@ -19,8 +19,7 @@ takeaways:
   - La relecture humaine (sept chercheurs, environ deux jours par projet) ne passe pas encore à l'échelle.
 missing:
   - balise og:image non vérifiée (image du corps de l'article utilisée)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

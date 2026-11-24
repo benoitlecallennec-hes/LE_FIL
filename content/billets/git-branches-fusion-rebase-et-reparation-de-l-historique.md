@@ -17,8 +17,7 @@ takeaways:
   - "Règle d'or : ne jamais réécrire un historique déjà poussé, utiliser `git revert` à la place."
 missing:
   - image principale de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 notions:

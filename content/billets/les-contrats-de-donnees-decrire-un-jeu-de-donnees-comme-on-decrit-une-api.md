@@ -19,8 +19,7 @@ missing:
   - dernières sections de l'article (mise en œuvre, coûts et bénéfices)
   - durée de lecture
   - image principale
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

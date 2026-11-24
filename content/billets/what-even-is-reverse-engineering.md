@@ -13,8 +13,7 @@ summary: ""
 missing:
   - contenu de la vidéo (short YouTube)
   - description sans contenu de fond, seulement des liens promotionnels
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

@@ -17,8 +17,7 @@ takeaways:
   - "Parmi les correctifs : `VoxelGI` hors de bornes non uniformes, l'échelle des traînées 3D, les soulignements de diagnostic en GDScript et l'extension `.mesh` à l'import."
   - L'édition .NET de Godot 4.8 demande désormais .NET 10.0 ou plus, au lieu de .NET 8.
   - 58 contributeurs, 123 correctifs, version construite à partir du commit `b070e63b1`.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 notions:

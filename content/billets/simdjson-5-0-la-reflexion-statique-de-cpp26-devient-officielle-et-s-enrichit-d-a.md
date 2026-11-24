@@ -16,8 +16,7 @@ takeaways:
   - Des annotations (`rename`, `rename_all`, `skip`, `default_value`, `flatten`, `deny_unknown_fields`…) règlent la sérialisation automatique.
   - Par défaut, la désérialisation par réflexion lit chaque objet en une seule passe grâce à des sélecteurs de clés à hachage parfait.
   - Nouveautés sur les flux de documents (RFC 7464, `simdjson::slice_at`), les grands entiers (`BIGINT_NUMBER`) et la vitesse de sérialisation.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

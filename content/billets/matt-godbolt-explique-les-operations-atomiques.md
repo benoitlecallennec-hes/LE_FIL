@@ -17,8 +17,7 @@ missing:
   - contenu de la vidéo (transcription)
   - date de publication
   - durée de la vidéo
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

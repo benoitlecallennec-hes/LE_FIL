@@ -17,8 +17,7 @@ takeaways:
   - "En tête des deux API : la RTX PRO 6000 Blackwell Workstation, avec 24595 points en OpenGL et 28592 en Vulkan."
   - La GeForce RTX 5090 est deuxième dans les deux classements.
   - Un astérisque signale un GPU qui a moins de cinq scores distincts, donc un rang encore instable.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

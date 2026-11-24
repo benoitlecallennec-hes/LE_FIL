@@ -20,8 +20,7 @@ missing:
   - chiffres des mesures de performance
   - durée de la vidéo
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

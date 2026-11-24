@@ -16,8 +16,7 @@ takeaways:
   - "`std::cw<X>` enveloppe une valeur de n'importe quel type structurel (pas seulement un entier), et le code appelé la lit par `T::value`."
   - "Les opérateurs renvoient un nouveau `constant_wrapper` : `cw<10> + cw<3>` vaut `constant_wrapper<13>`."
   - Déclaré dans `<utility>` (P2781R9 et P3978R3), il remplace `std::integral_constant` dans `submdspan` et `function_ref`.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

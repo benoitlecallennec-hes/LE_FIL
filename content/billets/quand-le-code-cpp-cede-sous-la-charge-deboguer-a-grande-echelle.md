@@ -19,8 +19,7 @@ missing:
   - contenu de la vidéo (Short)
   - nom de l'orateur et de la conférence d'origine
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

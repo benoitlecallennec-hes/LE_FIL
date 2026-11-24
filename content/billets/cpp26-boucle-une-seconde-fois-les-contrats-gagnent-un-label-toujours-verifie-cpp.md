@@ -19,8 +19,7 @@ takeaways:
 missing:
   - image principale (og:image) non récupérée
   - liste complète des papiers adoptés pour C++29 (seuls 5 sur 12 sont nommés)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

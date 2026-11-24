@@ -20,8 +20,7 @@ missing:
   - exemples de code éventuels
   - date de publication
   - durée
-status: selected
-draft: true
+status: published
 featured: true
 edition: 2026-W48
 notions:

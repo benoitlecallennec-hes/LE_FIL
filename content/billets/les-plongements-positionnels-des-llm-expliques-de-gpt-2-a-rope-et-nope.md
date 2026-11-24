@@ -19,8 +19,7 @@ missing:
   - fin de la section 6 et annexes lues seulement via un résumé (YaRN non lu)
   - liste complète des modèles de 2026 (figure de la galerie)
   - image principale de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

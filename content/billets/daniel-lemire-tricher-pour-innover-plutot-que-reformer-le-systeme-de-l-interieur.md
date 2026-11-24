@@ -16,8 +16,7 @@ takeaways:
   - Plutôt que réformer une institution de l'intérieur, rendez-la moins nécessaire.
   - "N'attendez pas que la direction autorise l'IA : servez-vous-en."
   - Testez l'idée vous-même, écoutez les objections, puis décidez.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

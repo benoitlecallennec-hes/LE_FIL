@@ -17,8 +17,7 @@ takeaways:
   - Le système de Replica apprend par renforcement à partir des interactions et des commentaires
   - L'Open Source Accessibility Framework s'appuie sur un fichier `ACCESSIBILITY.md` affiché sur la page d'accueil du dépôt
   - "Contributions publiques sur GitHub en 2026 : 2,5 milliards, plus du double de l'année précédente"
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

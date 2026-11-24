@@ -17,8 +17,7 @@ takeaways:
   - "Inkling 2 Mini, de Thinking Machines Lab, utilise aussi cette approche : il exécute trois fois les couches du milieu pour chaque token."
   - GLM-5.4 n'a pas de poids ouverts et n'est accessible que par l'abonnement Coding Plan, via l'API Responses compatible OpenAI à `https://api.z.ai/api/v1`.
   - Le plugin `llm-glm` permet d'utiliser GLM-5.4 depuis LLM en attendant que `llm-zai` le prenne en charge.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

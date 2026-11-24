@@ -18,8 +18,7 @@ takeaways:
   - Les pilotes NVIDIA, AMD et Intel prennent déjà Vulkan Video en charge, et les pilotes Mesa RADV, ANV et NVK suivent.
 missing:
   - balise og:image non vérifiée (adresse de la bannière reprise)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

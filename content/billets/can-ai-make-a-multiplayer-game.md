@@ -15,8 +15,7 @@ missing:
   - description de la vidéo (l'extrait ne contient que des liens et la mention du sponsor)
   - date de publication
   - durée de la vidéo
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

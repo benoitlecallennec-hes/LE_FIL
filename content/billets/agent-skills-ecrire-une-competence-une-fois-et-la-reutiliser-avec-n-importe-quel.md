@@ -17,8 +17,7 @@ takeaways:
   - Les détails propres au projet vont dans un manifeste partagé, pas dans les instructions de la skill.
   - Les instructions guident le travail ; la vérification revient aux revues humaines, aux tests, à la CI et aux règles du dépôt.
   - Un script de packaging génère, à partir des mêmes fichiers `SKILL.md`, les fichiers propres à Claude Code, Cursor et Copilot.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

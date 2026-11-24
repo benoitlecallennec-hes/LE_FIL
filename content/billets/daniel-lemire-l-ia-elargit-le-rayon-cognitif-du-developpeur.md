@@ -16,8 +16,7 @@ takeaways:
   - On peut faire avancer plusieurs dépôts à la fois et revenir dans une ancienne base de code en une heure plutôt qu'en une journée.
   - "Ce gain demande un savoir-faire : fournir le bon contexte, poser des questions qui restent ancrées et vérifier ce qui compte."
   - Le « rayon cognitif » est la distance (projets, technologies, temps) sur laquelle on produit encore un travail cohérent.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

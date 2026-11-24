@@ -15,8 +15,7 @@ takeaways:
   - "Format hybride : à Berlin et en ligne, comme l'an dernier"
   - Certains contenus sont réservés au public en ligne, d'autres au public sur place
   - Il reste des billets pour les deux formules
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

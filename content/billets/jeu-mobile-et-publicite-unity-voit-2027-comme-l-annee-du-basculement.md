@@ -16,8 +16,7 @@ takeaways:
   - L'in-app devient une destination à part entière, car les éditeurs ne peuvent plus compter sur le trafic venu des moteurs de recherche
   - Les progrès du ciblage, de la mesure et du suivi du retour sur investissement attirent de nouveaux annonceurs
   - Unity met en avant ses Core Standards pour rendre la publicité dans les jeux mobiles plus transparente
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

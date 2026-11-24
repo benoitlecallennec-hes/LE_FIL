@@ -19,8 +19,7 @@ takeaways:
 missing:
   - note complète d'Alpöge (remark.pdf) non lue
   - image de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

@@ -20,8 +20,7 @@ missing:
   - texte de la pétition
   - durée exacte de la vidéo
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

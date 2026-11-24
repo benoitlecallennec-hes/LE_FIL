@@ -19,8 +19,7 @@ takeaways:
 missing:
   - figures interactives (seules les légendes ont été lues)
   - temps de lecture non indiqué (estimé)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

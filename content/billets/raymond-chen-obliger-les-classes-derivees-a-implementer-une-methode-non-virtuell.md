@@ -15,8 +15,7 @@ takeaways:
   - Ne pas implémenter une méthode dans la classe de base suffit à obliger la classe dérivée à la fournir, sans `assert` ni exception à l'exécution.
   - C++/WRL signale l'oubli dès `WRL::Make` (classe abstraite, `C2259`), et C++/WinRT dès `winrt::make` (`C2039`, erreur typique du CRTP).
   - En C++ standard, l'erreur n'apparaît qu'au premier appel de `Convert`, ce que l'auteur promet d'améliorer dans la suite.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

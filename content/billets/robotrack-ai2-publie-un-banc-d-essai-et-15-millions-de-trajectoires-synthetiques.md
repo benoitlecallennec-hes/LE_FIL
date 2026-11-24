@@ -15,8 +15,7 @@ takeaways:
   - "RoboTrack-15M : 15 millions de trajectoires générées avec MolmoSpaces et MuJoCo. Il n'est devenu utile qu'une fois les points concentrés sur le robot et les objets manipulés."
   - RoboTracker-Warp passe de 63,9 à 66,0 AJ sur RoboTrack-Bench. Ses poids sont réservés à un usage non commercial.
   - Sur une tâche réelle de pipetage, le suivi de points réussit 17 essais sur 20, contre 8 pour les masques SAM3 et 5 pour le flot optique RAFT.
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

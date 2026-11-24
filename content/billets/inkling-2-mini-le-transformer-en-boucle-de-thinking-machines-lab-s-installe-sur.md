@@ -21,8 +21,7 @@ missing:
   - licence du modèle
   - fiche du modèle non consultée
   - balise og:image
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

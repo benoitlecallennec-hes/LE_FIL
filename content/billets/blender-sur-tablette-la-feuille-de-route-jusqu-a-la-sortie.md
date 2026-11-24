@@ -17,8 +17,7 @@ takeaways:
   - Builds quotidiens sur builder.blender.org et déploiement continu vers Google Play et l'App Store, malgré la question de la licence GPL
   - Opérateurs « Continue on device » et « Send to device » pour passer du desktop à la tablette
   - "« Compact UI » : une seule interface responsive, livrée par cas d'usage (portfolio, scène, sculpture, assets, storyboard)"
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

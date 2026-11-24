@@ -15,8 +15,7 @@ missing:
   - description de l'épisode (l'extrait du flux ne contient que des liens promotionnels)
   - date de publication
   - durée de la vidéo
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

@@ -17,8 +17,7 @@ takeaways:
   - "Avec `-Wall`, `gcc` refuse la forme courte `while (*p++ = *q++);` (`-Wparentheses`) : la comparaison à `'\\0'` doit être écrite."
 missing:
   - image principale de la page
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 notions:

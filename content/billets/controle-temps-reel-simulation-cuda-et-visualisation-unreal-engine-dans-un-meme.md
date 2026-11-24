@@ -19,8 +19,7 @@ missing:
   - contenu de la vidéo
   - transparents de la présentation
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

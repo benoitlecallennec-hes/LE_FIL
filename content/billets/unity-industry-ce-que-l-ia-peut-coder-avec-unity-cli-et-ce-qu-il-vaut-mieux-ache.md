@@ -19,8 +19,7 @@ takeaways:
 missing:
   - balise og:image non vérifiée (image d'en-tête reprise du corps de la page)
   - vidéos liées non consultées
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

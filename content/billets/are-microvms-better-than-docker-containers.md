@@ -14,8 +14,7 @@ missing:
   - contenu de la vidéo (Short YouTube)
   - description de la vidéo (l'extrait ne contient que des liens promotionnels)
   - date de publication
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---

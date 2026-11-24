@@ -19,8 +19,7 @@ takeaways:
 missing:
   - contenu des articles et vidéos référencés (seuls les résumés de la newsletter ont été lus)
   - balise og:image non vérifiée (image du premier article retenue)
-status: selected
-draft: true
+status: published
 featured: false
 edition: 2026-W48
 ---
