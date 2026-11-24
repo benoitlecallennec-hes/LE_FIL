@@ -1,0 +1,11 @@
+{{- /*
+  The courses of an edition's week, from data/semaines.yaml, keyed like the edition (`2026-W48`).
+  Takes the edition key; returns a slice, empty when the week has no entry.
+*/ -}}
+{{- $key := upper (string .) -}}
+{{- $weeks := site.Data.semaines | default dict -}}
+{{- $courses := slice -}}
+{{- range $k, $v := $weeks -}}
+  {{- if eq (upper $k) $key }}{{ $courses = $v | default slice }}{{ end -}}
+{{- end -}}
+{{- return $courses -}}

@@ -1,0 +1,35 @@
+# Notions vues en cours, par semaine ISO (clé = celle de l'édition, `2026-W48`).
+# Se remplit depuis Paillasse, onglet LE FIL, panneau « En cours cette semaine »
+# (pré-rempli d'après l'horaire, proposition possible par Claude).
+#
+# Paillasse cherche les mots de `match` (sinon le nom de la notion), en mot entier,
+# un « s » ou « x » final admis, dans le titre, le chapô et les points à retenir de
+# chaque billet, et écrit les notions trouvées dans le champ `notions` des billets
+# retenus. Le site affiche l'encadré « Cette semaine en cours », l'étiquette
+# « Cours · <notion> » et fait passer ces billets en tête de leur rubrique.
+#
+# Champs d'un cours : cours (nom affiché), code (code matière de l'horaire),
+# tag (rubrique de LE FIL), lien (page du cours), notions (liste de { nom, match, lien }).
+
+2026-W48:
+  - cours: Langage C
+    code: '1242.1'
+    tag: c
+    lien: https://he-arc.github.io/1242.1-Langage_C/docs/cours/chapitre09cours/
+    notions:
+      - nom: Pointeurs
+        match: [pointeur, pointer, adresse mémoire, déréférencement, arithmétique des pointeurs, pointeur nul, null pointer]
+      - nom: Allocation dynamique
+        match: [malloc, calloc, realloc, "`free`", allocation dynamique, allocation mémoire, fuite mémoire, memory leak, heap]
+        lien: https://he-arc.github.io/1242.1-Langage_C/docs/cours/chapitre10cours/
+  - cours: Génie logiciel
+    code: '2243.2'
+    tag: git
+    lien: https://he-arc.github.io/2243.2-Genie_Logiciel/docs/cours/10_git_part2/
+    notions:
+      - nom: Git
+        match: [git, commit, dépôt git, gestion de versions, version control]
+      - nom: Merge
+        match: [merge, fusion de branches, conflit de fusion, merge conflict]
+      - nom: Rebase
+        match: [rebase, cherry-pick]

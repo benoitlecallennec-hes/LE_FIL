@@ -11,9 +11,15 @@ tags:
   - id: 3d
     label: 3D
     match: [3d, graphics, rendering, shader, shaders, unity, blender, vulkan, opengl, webgpu, animation, geometry nodes]
+  - id: git
+    label: Git
+    match: [git, github, gitlab, version control, source control, git workflow, merge, rebase, monorepo]
+  - id: ia
+    label: IA
+    match: [ia, ai, artificial intelligence, intelligence artificielle, ai & ml, machine learning, deep learning, llm, llms, large language models, generative ai, generative-ai, genai, ai agents, agents, agentic ai, copilot, github copilot, claude, chatgpt]
   - id: autres
     label: Autres
-    match: [git, software engineering, teaching, tools]
+    match: [software engineering, engineering, open source, open source community, maintainers, security, infrastructure, developer skills, news & insights, teaching, tools]
 
 # rank: 1 is the most trusted. A feed with a fixed `tag` skips category
 # matching: every billet it produces lands in that rubric.
@@ -216,7 +222,64 @@ feeds:
     lang: en
     rank: 4
 
+  # Git
+  - name: Git Rev News
+    url: https://git.github.io/feed.xml
+    type: rss
+    tag: git
+    lang: en
+    rank: 2
+  - name: GitButler Blog
+    url: https://blog.gitbutler.com/rss/
+    type: rss
+    tag: git
+    lang: en
+    rank: 4
+
+  # IA
+  - name: Simon Willison
+    url: https://simonwillison.net/atom/everything/
+    type: rss
+    lang: en
+    rank: 2
+  - name: Andrej Karpathy
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UCXUPKJO5MZQN11PqgIvyuvQ
+    type: youtube
+    tag: ia
+    lang: en
+    rank: 2
+  - name: Welch Labs
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UConVfxXodg78Tzh5nNu85Ew
+    type: youtube
+    tag: ia
+    lang: en
+    rank: 3
+  - name: Sebastian Raschka
+    url: https://magazine.sebastianraschka.com/feed
+    type: rss
+    tag: ia
+    lang: en
+    rank: 3
+  - name: Hugging Face Blog
+    url: https://huggingface.co/blog/feed.xml
+    type: rss
+    tag: ia
+    lang: en
+    rank: 3
+  - name: Science4All
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UC0NCbj8CxzeCGIF6sODJ-7A
+    type: youtube
+    tag: ia
+    lang: fr
+    rank: 4
+
   # Autres
+  - name: Computerphile
+    url: https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA
+    type: youtube
+    tag: autres
+    lang: en
+    rank: 3
   - name: martinfowler.com
     url: https://martinfowler.com/feed.atom
     type: rss
@@ -244,24 +307,8 @@ feeds:
   - name: The GitHub Blog
     url: https://github.blog/feed/
     type: rss
-    tag: autres
     lang: en
     rank: 4
-  - name: "Flux RSS HES-SO: Actualités"
-    url: https://www.hes-so.ch/actualites/rss-news?type=600
-    type: rss
-    lang: fr
-    rank: 2
-  - name: "Flux RSS HES-SO: Agenda"
-    url: https://www.hes-so.ch/agenda/rss-events?type=600
-    type: rss
-    lang: fr
-    rank: 2
-  - name: "Flux RSS HES-SO: Actualités de la recherche"
-    url: https://www.hes-so.ch/recherche-innovation/rss-actualites-de-la-recherche?type=600
-    type: rss
-    lang: fr
-    rank: 2
   - name: Geeks3D
     url: https://feeds2.feedburner.com/TheGeeksOf3d
     type: rss

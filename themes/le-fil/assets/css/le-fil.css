@@ -592,3 +592,62 @@ code {
 .prose .highlight { margin: 0 0 18px; }
 .prose .highlight pre { margin: 0; }
 .prose .chroma, .prose .chroma .bg { background: var(--code-bg); }
+
+/* Cette semaine en cours: the bridge between the edition and the week's courses. */
+.course-week {
+  margin: 0 0 32px;
+  padding: 18px 20px 20px;
+  background: var(--box);
+  border-top: 3px solid var(--accent);
+}
+.course-week-title {
+  margin: 0 0 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.course-week-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px 32px;
+}
+.course-week-course { gap: 6px; }
+.course-week-notions {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 14px;
+}
+.course-week-notions li {
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.course-week-notions li:last-child { border-bottom: none; }
+.course-notion { font-weight: 600; }
+.course-week-related {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-soft);
+  font-size: 13px;
+}
+.course-chip {
+  display: inline-block;
+  padding: 0 6px;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+@media (max-width: 860px) {
+  .course-week { padding: 14px 16px 16px; }
+}
+
+/* Link to the list of editions, in the top strip */
+.topline a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.topline a:hover { color: var(--accent, inherit); }

@@ -13,7 +13,7 @@
 {{- end }}
 <header>
   <div class="topline caps">
-    <div>{{ partial "edition-label.html" . }}</div>
+    <div>{{ partial "edition-label.html" . }}{{ with site.GetPage "/edition" }} · <a href="{{ .RelPermalink }}">Tous les numéros</a>{{ end }}</div>
     <div>Édition hebdomadaire · {{ $feedCounts }}</div>
     <div>{{ if $info.preview }}Pas encore publié{{ else }}Publié le {{ $info.date | time.Format "Monday 2 January 2006" }}{{ end }}</div>
   </div>
@@ -37,6 +37,35 @@
   </nav>
   {{- end }}
 </header>
+
+{{- $courses := partial "course-week.html" .Data.Term }}
+{{- with $courses }}
+<section class="course-week" aria-labelledby="course-week-title">
+  <h2 class="course-week-title" id="course-week-title">Cette semaine en cours</h2>
+  <div class="course-week-list">
+    {{- range . }}
+    {{- $course := . }}
+    <div class="course-week-course stack">
+      {{- with .tag }}<div class="kicker kicker--small">{{ partial "rubric-label.html" . }}</div>{{ end }}
+      <h3 class="headline headline--m">{{ with .lien }}<a href="{{ . }}">{{ $course.cours }}</a>{{ else }}{{ $course.cours }}{{ end }}</h3>
+      <ul class="course-week-notions">
+        {{- range .notions | default slice }}
+        {{- $notion := .nom }}
+        {{- $related := slice }}
+        {{- range $sorted }}{{ if where (partial "course-notions.html" .) "nom" $notion }}{{ $related = $related | append . }}{{ end }}{{ end }}
+        <li>
+          {{- with .lien | default $course.lien }}<a class="course-notion" href="{{ . }}">{{ $notion }}</a>{{ else }}<span class="course-notion">{{ $notion }}</span>{{ end }}
+          {{- with $related }}
+          <span class="course-week-related">À lire : {{ range $i, $p := . }}{{ if $i }} · {{ end }}<a href="{{ $p.RelPermalink }}">{{ partial "inline.html" $p.Title }}</a>{{ end }}</span>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
 
 <main>
 {{- range first 1 $sorted }}
@@ -141,7 +170,7 @@
 <footer class="imprint">
   <div>
     <h2>Ours</h2>
-    <p>{{ site.Title }}, {{ if $info.preview }}numéro en préparation{{ else }}n° {{ $info.number }}{{ end }} — semaine {{ $info.week }} de {{ $info.start.Year }}.<br>Édition composée automatiquement à partir des flux suivis. Une et têtes de rubrique choisies selon le rang de fiabilité des sources (en rubrique, parmi les billets illustrés), sauf choix fait à la main.{{ with site.GetPage "/edition" }}<br><a href="{{ .RelPermalink }}">Tous les numéros</a>{{ end }}</p>
+    <p>{{ site.Title }}, {{ if $info.preview }}numéro en préparation{{ else }}n° {{ $info.number }}{{ end }} — semaine {{ $info.week }} de {{ $info.start.Year }}.<br>Édition composée automatiquement à partir des flux suivis. Une et têtes de rubrique choisies selon le rang de fiabilité des sources (en rubrique, parmi les billets illustrés), sauf choix fait à la main{{ with $courses }} ; les billets en lien avec les notions vues en cours cette semaine passent devant{{ end }}.{{ with site.GetPage "/edition" }}<br><a href="{{ .RelPermalink }}">Tous les numéros</a>{{ end }}</p>
   </div>
   <div>
     <h2>Sources de ce numéro</h2>

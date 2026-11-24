@@ -1,0 +1,21 @@
+{{- /*
+  The notions of the week's courses that a post talks about. Paillasse finds them (data/semaines.yaml, words of
+  each notion) and writes their names in the post's `notions` field; here they only get their course and page,
+  from the week of the post's edition. Returns a slice of dicts { nom, lien, cours }, empty without notions.
+*/ -}}
+{{- $found := slice -}}
+{{- with .Params.notions -}}
+  {{- $courses := partial "course-week.html" ($.Params.edition | default "") -}}
+  {{- range . -}}
+    {{- $name := string . -}}
+    {{- $notion := dict "nom" $name "lien" "" "cours" "" -}}
+    {{- range $courses -}}
+      {{- $course := . -}}
+      {{- range where (.notions | default slice) "nom" $name -}}
+        {{- $notion = dict "nom" $name "lien" (.lien | default $course.lien | default "") "cours" $course.cours -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $found = $found | append $notion -}}
+  {{- end -}}
+{{- end -}}
+{{- return $found -}}

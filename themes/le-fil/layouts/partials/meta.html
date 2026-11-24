@@ -14,5 +14,9 @@
     {{- end -}}
   </span>
   {{ partial "level.html" $p }}
+  {{- with partial "course-notions.html" $p }}
+  {{- $names := slice }}{{ range . }}{{ $names = $names | append .nom }}{{ end }}
+  <span class="course-chip" title="En lien avec le cours de la semaine{{ with (index . 0).cours }} : {{ . }}{{ end }}">Cours · {{ delimit (uniq $names) ", " }}</span>
+  {{- end }}
   {{ partial "replies.html" $p }}
 </div>

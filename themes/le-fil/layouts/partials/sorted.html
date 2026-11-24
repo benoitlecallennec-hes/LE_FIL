@@ -1,9 +1,9 @@
-{{- /* The hand-picked post first, then feed rank, then publication order. */ -}}
+{{- /* The hand-picked post first, then posts on the week's course notions, then feed rank, then publication order. */ -}}
 {{- $rows := slice -}}
 {{- range . -}}
   {{- $feed := partial "feed.html" . -}}
   {{- $rank := int ($feed.rank | default 999) -}}
-  {{- $picked := cond (eq .Params.featured true) 0 1 -}}
+  {{- $picked := cond (eq .Params.featured true) 0 (cond (gt (len (partial "course-notions.html" .)) 0) 1 2) -}}
   {{- $key := printf "%d-%04d-%s-%s" $picked $rank (.Date.Format "20060102150405") .Path -}}
   {{- $rows = $rows | append (dict "key" $key "page" .) -}}
 {{- end -}}
